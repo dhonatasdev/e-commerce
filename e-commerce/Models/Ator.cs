@@ -9,9 +9,10 @@ namespace e_commerce.Models
     public class Ator
     {
         [Key]
-        public int Id { get; set; }
-        public string FotoLink { get; set; }
-        public string NomeCompleto { get;set }
-        public string Bio { get;set }
+        public int AtorId { get; set; }
+        public string AtorFotoLink { get; set; }
+        public string AtorNomeCompleto { get; set; }
+        public string AtorBio { get; set; }
+        public List<Ator_Filme> Atores_Filmes { get; set; }
     }
 }

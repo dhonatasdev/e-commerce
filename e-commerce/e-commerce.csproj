@@ -176,6 +176,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Ator.cs" />
     <Compile Include="Models\Cinema.cs" />
+    <Compile Include="Models\Ator_Filme.cs" />
     <Compile Include="Models\Filme.cs" />
     <Compile Include="Models\Produtor.cs" />
     <Compile Include="Models\IdentityModels.cs" />

@@ -9,9 +9,10 @@ namespace e_commerce.Models
     public class Produtor
     {
         [Key]
-        public int Id { get; set; }
-        public string FotoLink { get; set; }
-        public string NomeCompleto { get; set; }
-        public string Bio { get; set; }
+        public int ProdutorId { get; set; }
+        public string ProdutorFotoLink { get; set; }
+        public string ProdutorNomeCompleto { get; set; }
+        public string ProdutorBio { get; set; }
+        public List<Filme> Filmes { get; set; }
     }
 }
