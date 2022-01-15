@@ -25,13 +25,13 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.AtorFotoLink)
+        <td class="align-middle">
+            <img style="border-radius: 50%; max-width: 150px" src="@item.AtorFotoLink"/>
         </td>
-        <td>
+        <td class="align-middle">
             @Html.DisplayFor(modelItem => item.AtorNomeCompleto)
         </td>
-        <td>
+        <td class="align-middle">
             @Html.DisplayFor(modelItem => item.AtorBio)
         </td>
         <td>

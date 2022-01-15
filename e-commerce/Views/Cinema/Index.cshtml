@@ -26,7 +26,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CinemaLogo)
+            <img style="border-radius:50%; width:150px"src="@item.CinemaLogo"/>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CinemaNome)

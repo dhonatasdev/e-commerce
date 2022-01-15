@@ -12,8 +12,14 @@ namespace e_commerce.Models
     {
         [Key]
         public int FilmeId { get; set; }
+        [Display(Name ="Nome")]
+        [Required]
         public string FilmeNome { get; set; }
+        [Display(Name ="Descrição")]
+        [Required]
         public string FilmeDescricao { get; set; }
+        [Display(Name ="Preço")]
+        [Required]
         public double FilmePreco { get; set; }
         public string FilmeFotoLink { get; set; }
 

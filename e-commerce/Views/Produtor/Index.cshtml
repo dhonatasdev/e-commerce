@@ -25,8 +25,8 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProdutorFotoLink)
+        <td class="align-middle">
+            <img style="border-radius:50%; max-width:150px" src="@item.ProdutorFotoLink" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ProdutorNomeCompleto)
