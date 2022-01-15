@@ -1,0 +1,42 @@
+﻿@model e_commerce.Models.Ator
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ator</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AtorFotoLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtorFotoLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AtorNomeCompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtorNomeCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AtorBio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AtorBio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AtorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

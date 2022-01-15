@@ -29,5 +29,15 @@ namespace e_commerce.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<e_commerce.Models.Filme> Filmes { get; set; }
+
+        public System.Data.Entity.DbSet<e_commerce.Models.Cinema> Cinemas { get; set; }
+
+        public System.Data.Entity.DbSet<e_commerce.Models.Produtor> Produtors { get; set; }
+
+        public System.Data.Entity.DbSet<e_commerce.Models.Ator> Ators { get; set; }
+
+        public System.Data.Entity.DbSet<e_commerce.Models.Ator_Filme> Ator_Filme { get; set; }
     }
 }

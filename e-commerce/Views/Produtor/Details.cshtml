@@ -1,0 +1,42 @@
+﻿@model e_commerce.Models.Produtor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Produtor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdutorFotoLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdutorFotoLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdutorNomeCompleto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdutorNomeCompleto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProdutorBio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProdutorBio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProdutorId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
