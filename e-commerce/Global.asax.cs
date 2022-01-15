@@ -14,7 +14,7 @@ namespace e_commerce
     {
         protected void Application_Start()
         {
-           // Database.SetInitializer<e_commerce.Context.Context>(new DropCreateDatabaseIfModelChanges<e_commerce.Context.Context>());
+            Database.SetInitializer<e_commerce.Context.Context>(new DropCreateDatabaseIfModelChanges<e_commerce.Context.Context>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

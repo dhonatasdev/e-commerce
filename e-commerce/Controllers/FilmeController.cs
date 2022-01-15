@@ -6,19 +6,20 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using e_commerce.Context;
 using e_commerce.Models;
 
 namespace e_commerce.Controllers
 {
     public class FilmeController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Context.Context db = new Context.Context();
 
         // GET: Filme
         public ActionResult Index()
         {
-            var filmes = db.Filmes.Include(f => f.Cinema).Include(f => f.Produtor);
-            return View(filmes.ToList());
+            var filme = db.Filme.Include(f => f.Cinema).Include(f => f.Produtor);
+            return View(filme.ToList());
         }
 
         // GET: Filme/Details/5
@@ -28,7 +29,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Filme filme = db.Filmes.Find(id);
+            Filme filme = db.Filme.Find(id);
             if (filme == null)
             {
                 return HttpNotFound();
@@ -39,8 +40,8 @@ namespace e_commerce.Controllers
         // GET: Filme/Create
         public ActionResult Create()
         {
-            ViewBag.CinemaId = new SelectList(db.Cinemas, "CinemaId", "CinemaLogo");
-            ViewBag.ProdutorId = new SelectList(db.Produtors, "ProdutorId", "ProdutorFotoLink");
+            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaLogo");
+            ViewBag.ProdutorId = new SelectList(db.Produtor, "ProdutorId", "ProdutorFotoLink");
             return View();
         }
 
@@ -53,13 +54,13 @@ namespace e_commerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Filmes.Add(filme);
+                db.Filme.Add(filme);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CinemaId = new SelectList(db.Cinemas, "CinemaId", "CinemaLogo", filme.CinemaId);
-            ViewBag.ProdutorId = new SelectList(db.Produtors, "ProdutorId", "ProdutorFotoLink", filme.ProdutorId);
+            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaLogo", filme.CinemaId);
+            ViewBag.ProdutorId = new SelectList(db.Produtor, "ProdutorId", "ProdutorFotoLink", filme.ProdutorId);
             return View(filme);
         }
 
@@ -70,13 +71,13 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Filme filme = db.Filmes.Find(id);
+            Filme filme = db.Filme.Find(id);
             if (filme == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CinemaId = new SelectList(db.Cinemas, "CinemaId", "CinemaLogo", filme.CinemaId);
-            ViewBag.ProdutorId = new SelectList(db.Produtors, "ProdutorId", "ProdutorFotoLink", filme.ProdutorId);
+            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaLogo", filme.CinemaId);
+            ViewBag.ProdutorId = new SelectList(db.Produtor, "ProdutorId", "ProdutorFotoLink", filme.ProdutorId);
             return View(filme);
         }
 
@@ -93,8 +94,8 @@ namespace e_commerce.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CinemaId = new SelectList(db.Cinemas, "CinemaId", "CinemaLogo", filme.CinemaId);
-            ViewBag.ProdutorId = new SelectList(db.Produtors, "ProdutorId", "ProdutorFotoLink", filme.ProdutorId);
+            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaLogo", filme.CinemaId);
+            ViewBag.ProdutorId = new SelectList(db.Produtor, "ProdutorId", "ProdutorFotoLink", filme.ProdutorId);
             return View(filme);
         }
 
@@ -105,7 +106,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Filme filme = db.Filmes.Find(id);
+            Filme filme = db.Filme.Find(id);
             if (filme == null)
             {
                 return HttpNotFound();
@@ -118,8 +119,8 @@ namespace e_commerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Filme filme = db.Filmes.Find(id);
-            db.Filmes.Remove(filme);
+            Filme filme = db.Filme.Find(id);
+            db.Filme.Remove(filme);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

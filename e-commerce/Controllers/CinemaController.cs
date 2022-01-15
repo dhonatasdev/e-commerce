@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using e_commerce.Context;
 using e_commerce.Models;
 
 namespace e_commerce.Controllers
 {
     public class CinemaController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Context.Context db = new Context.Context();
 
         // GET: Cinema
         public ActionResult Index()
         {
-            return View(db.Cinemas.ToList());
+            return View(db.Cinema.ToList());
         }
 
         // GET: Cinema/Details/5
@@ -27,7 +28,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cinema cinema = db.Cinemas.Find(id);
+            Cinema cinema = db.Cinema.Find(id);
             if (cinema == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace e_commerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Cinemas.Add(cinema);
+                db.Cinema.Add(cinema);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cinema cinema = db.Cinemas.Find(id);
+            Cinema cinema = db.Cinema.Find(id);
             if (cinema == null)
             {
                 return HttpNotFound();
@@ -96,7 +97,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cinema cinema = db.Cinemas.Find(id);
+            Cinema cinema = db.Cinema.Find(id);
             if (cinema == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace e_commerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cinema cinema = db.Cinemas.Find(id);
-            db.Cinemas.Remove(cinema);
+            Cinema cinema = db.Cinema.Find(id);
+            db.Cinema.Remove(cinema);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

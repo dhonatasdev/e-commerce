@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using e_commerce.Context;
 using e_commerce.Models;
 
 namespace e_commerce.Controllers
 {
     public class AtorController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Context.Context db = new Context.Context();
 
         // GET: Ator
         public ActionResult Index()
         {
-            return View(db.Ators.ToList());
+            return View(db.Ator.ToList());
         }
 
         // GET: Ator/Details/5
@@ -27,7 +28,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ator ator = db.Ators.Find(id);
+            Ator ator = db.Ator.Find(id);
             if (ator == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace e_commerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Ators.Add(ator);
+                db.Ator.Add(ator);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ator ator = db.Ators.Find(id);
+            Ator ator = db.Ator.Find(id);
             if (ator == null)
             {
                 return HttpNotFound();
@@ -96,7 +97,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Ator ator = db.Ators.Find(id);
+            Ator ator = db.Ator.Find(id);
             if (ator == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace e_commerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Ator ator = db.Ators.Find(id);
-            db.Ators.Remove(ator);
+            Ator ator = db.Ator.Find(id);
+            db.Ator.Remove(ator);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

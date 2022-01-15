@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using e_commerce.Context;
 using e_commerce.Models;
 
 namespace e_commerce.Controllers
 {
     public class ProdutorController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Context.Context db = new Context.Context();
 
         // GET: Produtor
         public ActionResult Index()
         {
-            return View(db.Produtors.ToList());
+            return View(db.Produtor.ToList());
         }
 
         // GET: Produtor/Details/5
@@ -27,7 +28,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produtor produtor = db.Produtors.Find(id);
+            Produtor produtor = db.Produtor.Find(id);
             if (produtor == null)
             {
                 return HttpNotFound();
@@ -50,7 +51,7 @@ namespace e_commerce.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Produtors.Add(produtor);
+                db.Produtor.Add(produtor);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produtor produtor = db.Produtors.Find(id);
+            Produtor produtor = db.Produtor.Find(id);
             if (produtor == null)
             {
                 return HttpNotFound();
@@ -96,7 +97,7 @@ namespace e_commerce.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produtor produtor = db.Produtors.Find(id);
+            Produtor produtor = db.Produtor.Find(id);
             if (produtor == null)
             {
                 return HttpNotFound();
@@ -109,8 +110,8 @@ namespace e_commerce.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Produtor produtor = db.Produtors.Find(id);
-            db.Produtors.Remove(produtor);
+            Produtor produtor = db.Produtor.Find(id);
+            db.Produtor.Remove(produtor);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace e_commerce.Context
 {
-    public class Context
+    public class Context:DbContext
     {
         public DbSet<Filme> Filme { get; set; }
         public DbSet<Cinema> Cinema { get; set; }

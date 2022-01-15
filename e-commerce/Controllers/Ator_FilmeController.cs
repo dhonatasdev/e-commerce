@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using e_commerce.Context;
 using e_commerce.Models;
 
 namespace e_commerce.Controllers
 {
     public class Ator_FilmeController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Context.Context db = new Context.Context();
 
         // GET: Ator_Filme
         public ActionResult Index()
@@ -39,7 +40,7 @@ namespace e_commerce.Controllers
         // GET: Ator_Filme/Create
         public ActionResult Create()
         {
-            ViewBag.AtorId = new SelectList(db.Ators, "AtorId", "AtorFotoLink");
+            ViewBag.AtorId = new SelectList(db.Ator, "AtorId", "AtorFotoLink");
             return View();
         }
 
@@ -57,7 +58,7 @@ namespace e_commerce.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AtorId = new SelectList(db.Ators, "AtorId", "AtorFotoLink", ator_Filme.AtorId);
+            ViewBag.AtorId = new SelectList(db.Ator, "AtorId", "AtorFotoLink", ator_Filme.AtorId);
             return View(ator_Filme);
         }
 
@@ -73,7 +74,7 @@ namespace e_commerce.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AtorId = new SelectList(db.Ators, "AtorId", "AtorFotoLink", ator_Filme.AtorId);
+            ViewBag.AtorId = new SelectList(db.Ator, "AtorId", "AtorFotoLink", ator_Filme.AtorId);
             return View(ator_Filme);
         }
 
@@ -90,7 +91,7 @@ namespace e_commerce.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AtorId = new SelectList(db.Ators, "AtorId", "AtorFotoLink", ator_Filme.AtorId);
+            ViewBag.AtorId = new SelectList(db.Ator, "AtorId", "AtorFotoLink", ator_Filme.AtorId);
             return View(ator_Filme);
         }
 
