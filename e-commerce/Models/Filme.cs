@@ -21,11 +21,16 @@ namespace e_commerce.Models
         [Display(Name ="Preço")]
         [Required]
         public double FilmePreco { get; set; }
+        [Display(Name ="Capa filme")]
         public string FilmeFotoLink { get; set; }
-
+        [Display(Name ="Data de início")]
+        [Required]
         public DateTime FilmeDataInicio{get;set;}
+        [Display(Name ="Data final")]
+        [Required]
         public DateTime FilmeDataFim { get; set; }
 
+        [Display(Name ="Categoria")]
         public Categ FilmeCategoria { get; set; }
 
         public List<Ator_Filme> Atores_Filmes { get; set; }

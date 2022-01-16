@@ -256,11 +256,6 @@
     <Content Include="Views\Cinema\Details.cshtml" />
     <Content Include="Views\Cinema\Edit.cshtml" />
     <Content Include="Views\Cinema\Index.cshtml" />
-    <Content Include="Views\Filme\Create.cshtml" />
-    <Content Include="Views\Filme\Delete.cshtml" />
-    <Content Include="Views\Filme\Details.cshtml" />
-    <Content Include="Views\Filme\Edit.cshtml" />
-    <Content Include="Views\Filme\Index.cshtml" />
     <Content Include="Views\Produtor\Create.cshtml" />
     <Content Include="Views\Produtor\Delete.cshtml" />
     <Content Include="Views\Produtor\Details.cshtml" />
@@ -271,6 +266,11 @@
     <Content Include="Views\Ator\Details.cshtml" />
     <Content Include="Views\Ator\Edit.cshtml" />
     <Content Include="Views\Ator\Index.cshtml" />
+    <Content Include="Views\Filme\Create.cshtml" />
+    <Content Include="Views\Filme\Delete.cshtml" />
+    <Content Include="Views\Filme\Details.cshtml" />
+    <Content Include="Views\Filme\Edit.cshtml" />
+    <Content Include="Views\Filme\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

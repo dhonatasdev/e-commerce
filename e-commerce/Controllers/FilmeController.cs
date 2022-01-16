@@ -40,7 +40,7 @@ namespace e_commerce.Controllers
         // GET: Filme/Create
         public ActionResult Create()
         {
-            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaLogo");
+            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaNome");
             ViewBag.ProdutorId = new SelectList(db.Produtor, "ProdutorId", "ProdutorFotoLink");
             return View();
         }
@@ -59,7 +59,7 @@ namespace e_commerce.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaLogo", filme.CinemaId);
+            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaNome", filme.CinemaId);
             ViewBag.ProdutorId = new SelectList(db.Produtor, "ProdutorId", "ProdutorFotoLink", filme.ProdutorId);
             return View(filme);
         }
@@ -76,7 +76,7 @@ namespace e_commerce.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaLogo", filme.CinemaId);
+            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaNome", filme.CinemaId);
             ViewBag.ProdutorId = new SelectList(db.Produtor, "ProdutorId", "ProdutorFotoLink", filme.ProdutorId);
             return View(filme);
         }
@@ -94,7 +94,7 @@ namespace e_commerce.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaLogo", filme.CinemaId);
+            ViewBag.CinemaId = new SelectList(db.Cinema, "CinemaId", "CinemaNome", filme.CinemaId);
             ViewBag.ProdutorId = new SelectList(db.Produtor, "ProdutorId", "ProdutorFotoLink", filme.ProdutorId);
             return View(filme);
         }
